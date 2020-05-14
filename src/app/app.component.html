@@ -1,0 +1,130 @@
+<!-- <router-outlet></router-outlet> -->
+<mat-card fxLayout="column" fxLayoutAlign="space-around stretch" class="Usercontrols">
+  <h2> User Controller </h2>
+    <button mat-raised-button color='primary' (click)="takescreenshot()">takescreenshot</button>
+    <button  mat-raised-button  color='accent' (click)="getServicerunning()">system details</button>
+   
+</mat-card>
+<!--<div class="scren"  #screens>
+
+</div>-->
+<br>
+
+ 
+    
+
+    <mat-accordion>
+        <mat-expansion-panel [expanded] = "changestateopen" (closed)="changescreensmall()"   (opened)="changescreenlarge()">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Screen shot
+            </mat-panel-title>
+          
+          </mat-expansion-panel-header>
+      
+          <mat-card class="canvascard">
+            <canvas #canvas width="1200" height="1000"></canvas>
+        </mat-card>
+
+        </mat-expansion-panel>
+      
+        <mat-expansion-panel [expanded] = "cpuopenexpand">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+                CPU Details
+            </mat-panel-title>
+         
+          </mat-expansion-panel-header>
+          <mat-list   style="width: 100%;">
+       
+                
+              <mat-list-item style="width: 100%;"> 
+           
+                <h4>OS :-  </h4> &nbsp;  &nbsp;<p>  {{osInfoData?.distro}} </p>
+              
+              </mat-list-item>   
+              <mat-list-item>
+                
+                <h4>platform :-  </h4> &nbsp;  &nbsp;<p>  {{osInfoData?.platform}} </p>
+              </mat-list-item>   
+              <mat-list-item>
+              
+                <h4>codename :-  </h4> &nbsp;  &nbsp;<p>  {{osInfoData?.codename}} </p>
+              </mat-list-item>   
+              <mat-list-item>
+              
+                <h4>kernel :-  </h4> &nbsp;  &nbsp;<p>  {{osInfoData?.kernel}} </p>
+              </mat-list-item>   
+              <mat-list-item>
+            
+                <h4>arch :-  </h4> &nbsp;  &nbsp;<p>  {{osInfoData?.arch}} </p>
+              </mat-list-item>   
+              <mat-list-item>
+              
+                <h4>hostname :-  </h4> &nbsp;  &nbsp;<p>  {{osInfoData?.hostname}} </p>
+              </mat-list-item>   
+              <mat-list-item>
+   
+                <h4>logofile :-  </h4> &nbsp;  &nbsp;<p>  {{osInfoData?.logofile}} </p>
+              </mat-list-item>   
+              
+
+
+
+
+
+
+
+
+
+
+           </mat-list>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+               CPU usage
+              </mat-panel-title>
+            
+            </mat-expansion-panel-header>
+        
+           
+            <div style="display: block">
+                <div fxLayout="row"  fxLayoutAlign="space-around center"> 
+                    <p> Used :- {{memData?.used}}</p>
+                    <p> Free :- {{memData?.free}}</p>
+                    <p> Total :- {{memData?.total}}</p>
+                </div>
+                <canvas baseChart
+                            [data]="doughnutChartData"
+                            [labels]="doughnutChartLabels"
+                            [chartType]="doughnutChartType"></canvas>
+              </div>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+               display
+              </mat-panel-title>
+            
+            </mat-expansion-panel-header>
+            <div fxLayout="row" class="width100" fxLayoutAlign="space-around start">
+              <ng-container *ngFor="let display of totaldisplay"  >
+                <mat-card class="displaycard">
+                    <p>display connection : {{display.connection}}</p>
+                    <p>display model : {{display.model}}</p>
+                    <p>display vendor : {{display.vendor}}</p>
+                    <p>display resolution : {{display.resolutionx}} * {{display.resolutiony}}</p>
+                    
+                </mat-card>
+            </ng-container>
+            </div>
+         
+            </mat-expansion-panel>
+
+      </mat-accordion>
+      <div>
+      
+      </div>
