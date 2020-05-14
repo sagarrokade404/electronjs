@@ -41,8 +41,28 @@ Install dependencies with npm :
 
 ``` bash
 npm install
+
+
 ```
 
+
+``` bash
+To run 
+ "electron:serve": "wait-on http-get://localhost:4200/ && npm run electron:serve-tsc && electron . --serve",
+    "electron:local": "npm run build:prod && electron .",
+    "electron:linux": "npm run build:prod && electron-builder build --linux",
+    "electron:windows": "npm run build:prod && electron-builder build --windows",
+    "electron:mac": "npm run build:prod && electron-builder build --mac",
+
+
+```
+   ``` bash
+   To Build 
+electron-packager . --platform=darwin  --overwrite
+    electron-packager . --platform=win32 --overwrite
+
+
+```
 There is an issue with `yarn` and `node_modules` when the application is built by the packager. Please use `npm` as dependencies manager.
 
 
