@@ -111,7 +111,7 @@
     "moment": "2.25.3",
     "ng2-charts": "2.3.1",
     "ps-list": "^7.0.0",
-    "systeminformation": "4.25.1",
+    "systeminformation": "4.27.11",
     "usb": "1.6.3",
     "usb-detection": "4.9.0"
   }
